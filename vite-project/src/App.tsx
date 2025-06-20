@@ -24,7 +24,7 @@ const navBar: NavBar = {
 type Products = {
     id: number;
     title : string;
-    prize?: number;
+    prize: number;
     comprar?: number;
     src: string;
     description: string;
