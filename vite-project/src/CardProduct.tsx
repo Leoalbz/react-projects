@@ -27,7 +27,7 @@ function CardProduct (props: CardProductProps){
                 <h3 className={styles.prizeProducto}>{prize}</h3>
                 <p>{description}</p>
                 <button className={styles.comprarProducto} onClick={() => agregarCarrito(prize)}>Agregar</button><button onClick={() => quitarCarrito(prize)}>Quitar</button>
-                <Link to={`/producto/${id}`}>Ver producto</Link>            
+                <Link to={`/product/${id}`}>Ver producto</Link>            
             </div>
         </article>
     );
