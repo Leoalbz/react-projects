@@ -1,4 +1,4 @@
-import styles from './CardProductstyles.module.css'
+import styles from './CardProductStyles.module.css'
 import {Link} from 'react-router';
 
 type CardProductProps = {
