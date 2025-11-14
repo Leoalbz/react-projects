@@ -3,6 +3,7 @@ import { useQuery } from '@tanstack/react-query';
 import { productService } from '../MOCK/service';
 import type { Products } from '../types/typeProductMocks';
 import ComponentNavBar from '../navBar';
+import style from '../CardProductStyles.module.css'
 
 
 
@@ -51,9 +52,9 @@ type NavBar = {
   children: any;
 }
 type DetalleProducto = {
-  agregarCarrito: (prize: number) => void;
-  quitarCarrito: (prize: number) => void;
-  carrito:number;
+  agregarCarrito: (product: Products) => void;
+  quitarCarrito: (id: number) => void;
+  carrito: Products[];
 }
 
 function ProductDetail(props: DetalleProducto)  {
@@ -91,55 +92,54 @@ function ProductDetail(props: DetalleProducto)  {
         item3={item3}
         carrito={carrito}
       />
-
-      <div className="min-h-screen bg-gray-100 py-10">
-        <div className="max-w-6xl mx-auto p-8 bg-white rounded-2xl shadow-2xl flex flex-col md:flex-row gap-12">
+        <div className={style.productoDetailContainer}>
           <div className="flex-shrink-0">
             <img
               src={product.image}
               alt={product.title}
-              className="w-full md:w-96 h-auto rounded-lg shadow-lg object-contain"
+              className="img-fluid"
             />
           </div>
           <div className="flex-1 flex flex-col justify-between">
-            <div>
-              <h2 className="text-4xl font-extrabold text-gray-900 mb-6">
+            <div className={style.productDetailInformation}>
+              <h2>
                 {product.title}
               </h2>
-              <p className="text-lg text-gray-700 leading-relaxed mb-6">
+              <b><p>
                 {product.description}
               </p>
-              <p className="text-3xl font-bold text-green-600 mb-4">
+              </b>
+              <p >
                 ${product.price}
               </p>
               <span className="inline-block px-4 py-1 bg-gray-200 text-gray-800 rounded-full text-sm font-medium uppercase tracking-wide">
-                {product.category}
+                Categoría: {product.category}
               </span>
             </div>
             <div className="mt-8 flex gap-4">
               <button
-                onClick={() => agregarCarrito(product.price)}
+                onClick={() => agregarCarrito(product)}
                 className="bg-yellow-400 hover:bg-yellow-500 text-black font-semibold py-2 px-6 rounded-lg shadow transition"
               >
                 Agregar al carrito
               </button>
               <button
                 onClick={() => quitarCarrito(product.price)}
-                className="bg-red-500 hover:bg-red-600 text-white font-semibold py-2 px-6 rounded-lg shadow transition"
+                className="bg-red-500 hover:bg-red-600 font-semibold py-2 px-6 rounded-lg shadow transition"
               >
                 Quitar del carrito
               </button>
+              <button className="ml-auto bg-gray-800 hover:bg-gray-900 font-semibold py-2 px-6 rounded-lg shadow transition">
               <Link
                 to="/"
-                className="ml-auto bg-gray-800 hover:bg-gray-900 text-white font-semibold py-2 px-6 rounded-lg shadow transition"
-              >
+                >
                 Volver al inicio
               </Link>
+              </button>
             </div>
           </div>
 
         </div>
-      </div>
     </>
   );
 }

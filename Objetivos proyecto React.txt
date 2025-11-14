@@ -1,0 +1,16 @@
+TIEMPO MÁXIMO 27/09 - Correcciones a proyecto de React.js
+
+-Botón de eliminar productos(estando en el carrito de compras) para borrar los productos seleccionados. Además, guardar en la caché del navegador dichos productos para que cuando se reinicie la página sigan estando ahí.
+
+-Reemplazar "Ir al carrito" por el dibujo de un carrito.
+
+-Colocarle al carrito un contador para que el visitante de la página pueda saber cuantos productos está comprando.
+
+-Dejar la barra de búsqueda por encima de las categorías. Separar con contenedores de categoría eligiendo productos al azar(por ejemplo titulo del contenedor, productos con descuento.
+
+-Formulario de compra, con minimos y maximos en los caracteres además de el dibujo de las tarjetas. Buscar la forma de validar esa compra.
+Cuando entrás al carrito, se deben ver los productos que se están comprando, no solo los montos.
+
+-Seguir trabajando con la paleta de colores.
+
+-Se debe hacer click en la imagen de la card y podés ingresar a ver el detalle.
