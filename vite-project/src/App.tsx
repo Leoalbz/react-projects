@@ -5,7 +5,6 @@ import './App.css'*/
 import CardProduct from "./CardProduct"
 import CardProductContainer from "./CardProductContainer"
 import ComponentNavBar from './navBar'
-import SearchBar from './SearchBar'
 import useSearch from './hooks/useSearch'
 import CheckBox from './CheckBox'
 import CarritoDetail from './pages/CarritoDetail'
@@ -26,12 +25,12 @@ type NavBar = {
   item1: string;
   item2: string;
   item3: string;
-  carrito?: number;
+  carrito?: Products[];
   children: any;
 }
 
 const navBar: NavBar = {
-  tituloPagina: 'Mercado Libre',
+  tituloPagina: 'Eccomerce',
   item1: 'Lo mas visto',
   item2: 'Lo mas vendido',
   item3: 'Proximamente'
@@ -39,7 +38,7 @@ const navBar: NavBar = {
 
 
 function App() {
-  const [carrito, setCarritoCount] = useState(0);
+  const [carrito, setCarritoCount] = useState<Products[]>([]);
   const {tituloPagina, item1, item2, item3} = navBar;
   const [searchParams, setSearchParams] = useSearch();
 
@@ -76,12 +75,12 @@ function App() {
       }
 
 
-  const agregarCarrito = (prize: number) => {
-  setCarritoCount((prev) => prev + prize);
+  const agregarCarrito = (product: Products) => {
+   setCarritoCount((prev) => [...prev, product]);
 };
 
-  const quitarCarrito = (prize: number) => {
-  setCarritoCount((prev) => (prev - prize));
+  const quitarCarrito = (id: number) => {
+    setCarritoCount((prev) => prev.filter((product) => product.id !== id));
 };
   
   const titleValue = searchParams.get('title') ?? '';
@@ -91,39 +90,34 @@ function App() {
   return (
     <>
       <Routes>
-        
-        <Route path='/' element={
-        <>
+
+         <Route path='/' element={
+      <>
       <ComponentNavBar 
       tituloPagina={tituloPagina} 
       item1={item1} 
       item2={item2} 
       item3={item3} 
-      carrito={carrito}/>
+      carrito={carrito}
+      >
       <CheckBox categoriasElegidas={categoriasElegidas} setSearchParams={setSearchParams} />
-      <SearchBar query={titleValue} setSearchParams={setSearchParams}/>
+      </ComponentNavBar>
       <CardProductContainer>
       {products?.filter((product) => product.title.includes(titleValue)).filter((product) => categoriasElegidas.length === 0 || categoriasElegidas.includes(product.category ?? '')).map((product) => {
         return (
           
              <CardProduct
-             key={product.id} 
-             id={product.id} 
-             title={product.title} 
-             prize= {product.price} 
-             description={product.description}
-             src={product.image}
+             product={product}
              agregarCarrito={agregarCarrito}
              quitarCarrito={quitarCarrito}
-             categoria={product.category}
                />
       )})}</CardProductContainer>
      </>
     } 
     />
     
-        <Route path="/carrito" element={<CarritoDetail carritoTotal={carrito} />} />
-        <Route path="/confirmar_compra" element={<ConfirmarCompra carritoTotal={carrito} />} />
+        <Route path="/carrito" element={<CarritoDetail carrito={carrito} handleClick={quitarCarrito}/>} />
+        <Route path="/confirmar_compra" element={<ConfirmarCompra carrito={carrito}/>} />
         <Route path='*' element={<NotFound />}/>
         <Route path='/compra_realizada' element={<CompraRealizada />}/>    
         <Route path='/product/:id' element={<ProductDetail carrito= {carrito} agregarCarrito={agregarCarrito} quitarCarrito={quitarCarrito}/>}/>      

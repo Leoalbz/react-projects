@@ -10,6 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
+    "'": "file:awesome.me/kit-KIT_CODE@latest'",
+    "@fortawesome/fontawesome-svg-core": "^7.0.1",
     "@tailwindcss/vite": "^4.1.11",
     "@tanstack/react-query": "^5.85.3",
     "react": "^19.1.0",

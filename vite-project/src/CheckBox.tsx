@@ -36,7 +36,7 @@ export default function CheckBox({ categoriasElegidas, setSearchParams }: CheckB
       <button
         type="button"
         onClick={() => setIsOpen(!isOpen)}
-        className="inline-flex justify-center w-full rounded-md border border-gray-600 shadow-sm px-4 py-2 bg-gray-900 text-white text-sm font-medium hover:bg-gray-800 focus:outline-none"
+        className="inline-flex justify-center w-full rounded-md border border-gray-600 shadow-sm px-4 py-2 bg-gray-900  text-sm font-medium hover:bg-gray-800 focus:outline-none"
         aria-expanded={isOpen}
       >
         Filtrar
@@ -50,8 +50,6 @@ export default function CheckBox({ categoriasElegidas, setSearchParams }: CheckB
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7" />
         </svg>
       </button>
-
-      {/* Panel desplegable con fondo negro y texto blanco */}
       {isOpen && (
         <div className="origin-top-right absolute mt-2 w-56 rounded-md shadow-lg bg-black-important ring-1 ring-white ring-opacity-20 z-10 p-4">
           <h4 className="font-semibold mb-2">Categorías</h4>
