@@ -44,7 +44,7 @@ function ComponentNavBar(props: NavBarProps){
             <li className={styles.itemsStyle}>${total}</li>
             <li className={styles.carritoStyle}>
               <Link to="/carrito" state={carrito}>
-                <img src="../public/carro-de-la-compra.png" alt="carrito" />
+                <img src="/carro-de-la-compra.png" alt="carrito" />
               </Link>
             </li>
           </ul>
