@@ -30,7 +30,7 @@ type NavBar = {
 }
 
 const navBar: NavBar = {
-  tituloPagina: 'Eccomerce',
+  tituloPagina: 'Ecommerce',
   item1: 'Lo mas visto',
   item2: 'Lo mas vendido',
   item3: 'Proximamente'
@@ -99,6 +99,8 @@ function App() {
       item2={item2} 
       item3={item3} 
       carrito={carrito}
+      searchParams={searchParams}
+      setSearchParams={setSearchParams}
       >
       <CheckBox categoriasElegidas={categoriasElegidas} setSearchParams={setSearchParams} />
       </ComponentNavBar>

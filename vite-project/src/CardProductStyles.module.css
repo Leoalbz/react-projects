@@ -9,11 +9,27 @@ body {
     width: 100%;
 }
 
+a {
+    text-decoration: none !important;
+    color: inherit !important;
+}
+
+.pageContainer {
+    padding: 20px;
+}
+
+
 .tituloProducto {
     color: red;
     font-size: 32px;
 }
 
+
+.carritoStyle {
+    width: 5%;
+    height: 5%;
+    box-sizing: content-box;
+}
 
 .stylesSectionContainer {
     display: flex;
@@ -56,11 +72,17 @@ body {
 
 .productoDetailContainer {
     display: flex;
-}
-
-.productDetailInformation {
+    gap: 40px;
+    width: 100%;
     margin: auto;
 }
+
+.productoDetailContainer img {
+    width: 100%;
+}
+
+
+
 
 .botonesCard {
     margin-top: auto;
@@ -70,8 +92,9 @@ body {
 .stylesProductContainer {
     display: flex;
     flex-wrap: wrap;
-    gap: 8px;
+    gap: 24px;
     margin: 60px;
+    justify-content: center;
 }
 
 .cardProductSection {
@@ -83,60 +106,82 @@ body {
     box-sizing: border-box;
 }
 
+.productDetailInformation {
+    display: flex;
+    width: 100%;
+    margin: auto ;
+    gap: 12px;
+    align-items: center;
 
+}
 
 .NavBarHeader {
-    height: 150px;
+    height: 90px;
+    width: 100%;
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: #1f2937;
-    padding: 12px 24px;
-    /*color: white;*/
+    padding: 12px 32px;
     position: sticky;
-    z-index: 1000;
+    top: 0;
+    z-index: 1000; 
 }
+
 
 .navBarContainer {
-    margin-top: 20px;
+    display: flex;
+    align-items: center;
+    gap: 24px;
 }
+
+
 .navBarstyle {
     display: flex;
-    gap: 16px;
+    align-items: center;
+    gap: 20px;
 }
-
-
-.searchBar {
-    color: white;
-    width: 500px;
-    text-align: center;
-    background-color: white;
-    color: #111827;
-}
-
 
 
 .itemsStyle {
     list-style: none;
-    margin: 0;
-    padding: 0;
     color: white;
     cursor: pointer;
     font-weight: 500;
-    transition: color 0.2s ease-in-out;
+    transition: color 0.2s ease;
 }
 
 .itemsStyle:hover {
     color: #60a5fa;
 }
 
+.carritoStyle img {
+    width: 28px;
+    height: 28px;
+    cursor: pointer;
+    filter: brightness(0) invert(1);
+    transition: transform 0.2s ease;
+}
+
+.carritoStyle img:hover {
+    transform: scale(1.1);
+}
+
+
 .titlePagestyle {
-    text-align: center;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 700;
-    margin-top: 32px;
-    margin-bottom: 16px;
     color: white;
+    margin: 0;
+}
+
+
+.searchBar {
+    width: 350px;
+    background-color: white;
+    color: #111827;
+    border-radius: 8px;
+    text-align: center;
 }
 
 
@@ -178,3 +223,8 @@ input[type="checkbox"] {
     outline: none;
     border-color: #3b82f6;
 }
+
+.CarritoDetail {
+    width: 100%;
+    margin: auto;
+   }

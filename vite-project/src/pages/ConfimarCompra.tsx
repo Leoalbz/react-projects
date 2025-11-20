@@ -13,7 +13,9 @@ export default function ConfirmarCompra(props: Props) {
   return (
     <div>
       <h2>Monto total de la compra: ${total}</h2>
-        <Link to={'/compra_realizada'}>¿Deseás confirmar la compra?</Link>
+      <h2>¿Deseás confirmar la compra?</h2>
+        <button><Link to={'/compra_realizada'}>Si</Link></button>
+        <button><Link to={'/'}>Volver al inicio</Link></button>
     </div>
   );
 }

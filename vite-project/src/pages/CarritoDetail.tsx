@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import type { Products } from "../types/typeProductMocks";
+import style from '../CardProductStyles.module.css'
 
 
 
@@ -7,6 +8,8 @@ type CarritoDetailType = {
   carrito: Products[];
   handleClick: (id: number) => void;
 };
+
+
 
 
 
@@ -18,7 +21,7 @@ export default function CarritoDetail(props: CarritoDetailType) {
 
   return (
     <div>
-      <div>
+      <div className={style.CarritoDetail}>
       <h1>Proceso de compra</h1>
       <p>Usted está por comprar:</p>
       </div>
