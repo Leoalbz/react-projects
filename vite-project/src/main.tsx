@@ -6,12 +6,13 @@ import './index.css'
 import App from './App.tsx'
 
 
+
 export const queryClient = new QueryClient();
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <QueryClientProvider client={queryClient}>
-    <BrowserRouter>
+    <BrowserRouter> 
        <App />
     </BrowserRouter>
     </QueryClientProvider>  

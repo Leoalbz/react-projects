@@ -4,6 +4,7 @@ import { productService } from '../MOCK/service';
 import type { Products } from '../types/typeProductMocks';
 import ComponentNavBar from '../navBar';
 import style from '../CardProductStyles.module.css'
+import useSearch from '../hooks/useSearch';
 
 
 
@@ -59,9 +60,10 @@ type DetalleProducto = {
 
 function ProductDetail(props: DetalleProducto)  {
   const { carrito , agregarCarrito, quitarCarrito } = props;
+  const [searchParams, setSearchParams] = useSearch();
 
   const navBar: NavBar = {
-    tituloPagina: 'Mercado Libre',
+    tituloPagina: 'Ecommerce',
     item1: 'Lo mas visto',
     item2: 'Lo mas vendido',
     item3: 'Proximamente'
@@ -84,13 +86,15 @@ function ProductDetail(props: DetalleProducto)  {
   if (isError || !product) return <p>Producto no encontrado</p>;
 
   return (
-    <>
-      <ComponentNavBar
+    <div className={style.pageContainer}>
+       <ComponentNavBar
         tituloPagina={tituloPagina}
         item1={item1}
         item2={item2}
         item3={item3}
         carrito={carrito}
+        setSearchParams={setSearchParams}
+        searchParams={searchParams}
       />
         <div className={style.productoDetailContainer}>
           <div className="flex-shrink-0">
@@ -140,7 +144,8 @@ function ProductDetail(props: DetalleProducto)  {
           </div>
 
         </div>
-    </>
+        </div>
+
   );
 }
 

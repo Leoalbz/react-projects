@@ -24,7 +24,7 @@ function CardProduct (props: CardProductProps){
             </div>
             <div className={styles.botonesCard}>
             <button className={styles.comprarProducto} onClick={() => agregarCarrito(product)}>Agregar</button><button onClick={() => quitarCarrito(product.id)}>Quitar</button>
-            <Link to={`/product/${product.id}`}>Ver producto</Link>            
+            <button><Link to={`/product/${product.id}`}>Ver producto</Link></button>            
             </div>
         </article>
     );
