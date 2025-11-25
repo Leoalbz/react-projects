@@ -20,20 +20,19 @@ export default function CarritoDetail(props: CarritoDetailType) {
 
 
   return (
-    <div>
+    <div className={style.carritoContainer}>
       <div className={style.CarritoDetail}>
-      <h1>Proceso de compra</h1>
-      <p>Usted está por comprar:</p>
+      <h1 className={style.tituloCarrito}>Proceso de compra</h1>
       </div>
       {carrito.map((item) => (
-      <div>
+      <div className={style.productosCarrito}>
       <img src={item.image}/>
       <h2>{item.title}</h2>
       <h3>{item.price}</h3>
       <button onClick={() =>handleClick(item.id)}>Eliminar Producto</button>
       </div>
       ))}
-      <b><p>Total: ${total}</p></b>
+      <b><p className={style.totalCarrito}>Total: ${total}</p></b>
       <br />
       <button className="ml-auto bg-gray-800 hover:bg-gray-900 font-semibold py-2 px-6 rounded-lg shadow transition"><Link to="/confirmar_compra">Confirmar compra</Link></button>
       <button className="ml-auto bg-gray-800 hover:bg-gray-900 font-semibold py-2 px-6 rounded-lg shadow transition"><Link to="/">Volver al inicio</Link></button>

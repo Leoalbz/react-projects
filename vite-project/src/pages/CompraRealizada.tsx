@@ -6,7 +6,7 @@ export default function CompraRealizada() {
     return (
         <>
         <h1>Su compra ha sido realizada exitosamente!</h1>
-        <Link to={'/'}>Volver al inicio</Link>
+        <button><Link to={'/'}>Volver al inicio</Link></button>
         </>
     )
 }
