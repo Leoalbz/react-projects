@@ -60,7 +60,6 @@ type DetalleProducto = {
 
 function ProductDetail(props: DetalleProducto)  {
   const { carrito , agregarCarrito, quitarCarrito } = props;
-  const [searchParams, setSearchParams] = useSearch();
 
   const navBar: NavBar = {
     tituloPagina: 'Ecommerce',
@@ -70,7 +69,7 @@ function ProductDetail(props: DetalleProducto)  {
   } 
 
   const { id } = useParams<{ id:string }>();
-  const {tituloPagina, item1, item2, item3} = navBar;
+
   
 
   const productId = Number(id);
@@ -87,15 +86,6 @@ function ProductDetail(props: DetalleProducto)  {
 
   return (
     <div className={style.pageContainer}>
-       <ComponentNavBar
-        tituloPagina={tituloPagina}
-        item1={item1}
-        item2={item2}
-        item3={item3}
-        carrito={carrito}
-        setSearchParams={setSearchParams}
-        searchParams={searchParams}
-      />
         <div className={style.productoDetailContainer}>
           <div className="flex-shrink-0">
             <img

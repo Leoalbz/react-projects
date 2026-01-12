@@ -4,13 +4,15 @@ import useSearch from './hooks/useSearch'
 import SearchBar from './SearchBar.tsx';
 import type { Products } from './types/typeProductMocks.ts';
 import type { ReactNode } from 'react';
+import type { CartType } from './context/CarritoContext.tsx';
+import { useCart } from './hooks/useCart.ts';
 
 type NavBarProps = {
    tituloPagina: string;
    item1: string;
    item2: string;
    item3: string;
-   carrito: Products[];
+   carrito: CartType[];
    children: ReactNode;
    searchParams: URLSearchParams;
    setSearchParams: (params: any) => void;
@@ -20,9 +22,9 @@ type NavBarProps = {
 
 
 function ComponentNavBar(props: NavBarProps){
-    const {tituloPagina , item1 ,item2, item3, carrito, children, searchParams, setSearchParams} = props;
+    const {tituloPagina , item1 ,item2, item3, children, searchParams, setSearchParams} = props;
     const titleValue = searchParams.get('title') ?? '';
-    const total = carrito.reduce((acc, item) => acc + item.price, 0);
+   const {cart, total} = useCart();
 
     return (
       <div className={styles.NavBarHeader}>
@@ -43,7 +45,7 @@ function ComponentNavBar(props: NavBarProps){
             <li className={styles.itemsStyle}>{item3}</li>
             <li className={styles.itemsStyle}>${total}</li>
             <li className={styles.carritoStyle}>
-              <Link to="/carrito" state={carrito}>
+              <Link to="/carrito" state={cart}>
                 <img src="/carro-de-la-compra.png" alt="carrito" />
               </Link>
             </li>
