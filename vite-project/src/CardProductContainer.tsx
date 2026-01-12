@@ -6,6 +6,7 @@ type CardProductContainerProps = {
 }
 
 function CardProductContainer(props: CardProductContainerProps) {
+    
     const {children} = props;
     return (
         <section className={styles.stylesSectionContainer}>
