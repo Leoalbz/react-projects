@@ -17,8 +17,10 @@ import CompraRealizada from './pages/CompraRealizada.tsx'
 import { productService } from './MOCK/service.ts';
 import type { Products } from './types/typeProductMocks.ts'
 import './index.css'; 
+import { Layout } from './layout/Layout.tsx'
+import { Home } from './Home.tsx'
 
-
+/*
 
 type NavBar = {
   tituloPagina: string;
@@ -35,11 +37,10 @@ const navBar: NavBar = {
   item2: 'Lo mas vendido',
   item3: 'Proximamente'
 } 
-
+*/
 
 function App() {
   const [carrito, setCarritoCount] = useState<Products[]>([]);
-  const {tituloPagina, item1, item2, item3} = navBar;
   const [searchParams, setSearchParams] = useSearch();
 
  /* const { data: products, isLoading } = useQuery({
@@ -83,29 +84,17 @@ function App() {
     setCarritoCount((prev) => prev.filter((product) => product.id !== id));
 };
   
-  const titleValue = searchParams.get('title') ?? '';
+  const titleValue = searchParams.get(('title')) ?? '';
   const categoriaValue = searchParams.get('categoria') ?? '';
   const categoriasElegidas = categoriaValue ? categoriaValue.split(',') : [];
 
   return (
     <>
       <Routes>
-
-         <Route path='/' element={
-      <>
-      <ComponentNavBar 
-      tituloPagina={tituloPagina} 
-      item1={item1} 
-      item2={item2} 
-      item3={item3} 
-      carrito={carrito}
-      searchParams={searchParams}
-      setSearchParams={setSearchParams}
-      >
-      <CheckBox categoriasElegidas={categoriasElegidas} setSearchParams={setSearchParams} />
-      </ComponentNavBar>
-      <CardProductContainer>
-      {products?.filter((product) => product.title.includes(titleValue)).filter((product) => categoriasElegidas.length === 0 || categoriasElegidas.includes(product.category ?? '')).map((product) => {
+        <Route element={<Layout carrito={carrito} categoriasElegidas={categoriasElegidas} searchParams={searchParams} setSearchParams={setSearchParams} />}>
+        <Route index element={<Home />} />
+        <Route path='products' element={<CardProductContainer>
+        {products?.filter((product) => product.title.toLowerCase().includes(titleValue)).filter((product) => categoriasElegidas.length === 0 || categoriasElegidas.includes(product.category ?? '')).map((product) => {
         return (
           
              <CardProduct
@@ -114,15 +103,13 @@ function App() {
              quitarCarrito={quitarCarrito}
                />
       )})}</CardProductContainer>
-     </>
-    } 
-    />
-    
+      } /> 
         <Route path="/carrito" element={<CarritoDetail carrito={carrito} handleClick={quitarCarrito}/>} />
         <Route path="/confirmar_compra" element={<ConfirmarCompra carrito={carrito}/>} />
         <Route path='*' element={<NotFound />}/>
         <Route path='/compra_realizada' element={<CompraRealizada />}/>    
-        <Route path='/product/:id' element={<ProductDetail carrito= {carrito} agregarCarrito={agregarCarrito} quitarCarrito={quitarCarrito}/>}/>      
+        <Route path='/product/:id' element={<ProductDetail carrito= {carrito} agregarCarrito={agregarCarrito} quitarCarrito={quitarCarrito}/>}/>
+        </Route> 
       </Routes>
     </>
     );

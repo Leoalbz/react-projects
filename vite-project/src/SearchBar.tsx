@@ -1,7 +1,7 @@
 import style from "./CardProductStyles.module.css"
 
 type SearchProps = {
-  query: string[];
+  query: string;
   setSearchParams: (params: Record<string, string | null>) => void;
 };
 

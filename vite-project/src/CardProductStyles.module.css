@@ -1,5 +1,6 @@
 @import 'tailwindcss';
 
+
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: rgb(202, 197, 197);
@@ -7,6 +8,7 @@ body {
     padding: auto;
     display: block;
     width: 100%;
+    overflow-y: scroll;
 }
 
 a {
@@ -22,6 +24,12 @@ a {
     font-size: 32px;
 }
 
+.homeStyle {
+margin: auto;
+align-items: center;
+
+}
+
 
 .carritoStyle {
     width: 5%;
@@ -29,14 +37,37 @@ a {
     box-sizing: content-box;
 }
 
+.styleLayout {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .navBarstyleLayout {
+    width: 100% !important; 
+
+  }
+  
+.main-content {
+    flex: 1;
+    max-width: 1200px;
+    width: 100%;
+    margin: 0 auto;
+    padding: 1rem;
+  }
+
+
 .stylesSectionContainer {
+    width: 100%;
     display: flex;
     flex-direction: column;
     text-align: center;
+    min-height: 60vh;
 }
 
 
 .stylesContainer {
+    width: 100%;
     display: flex;
     flex-direction: column;
     background-color: white;
@@ -54,7 +85,7 @@ a {
 .cardProductContainer{
         border: 1px solid black;
         border-radius: 10px;
-        width: 200px;
+        width: 100%;
       }
 
 .cardProductContent {
@@ -240,6 +271,7 @@ input[type="checkbox"] {
 
 
 .tituloCarrito {
+    width: auto;
     background-color: white;
     border: 2px solid black;
     text-align: center;
@@ -254,4 +286,178 @@ input[type="checkbox"] {
     border-radius: 10px;
     font-size: xx-large;
     margin: auto;
+}
+
+
+
+
+
+
+
+
+
+
+@media screen and (max-width:980px) {
+    
+
+
+
+body {
+
+        display: flex;
+    }
+    
+    
+    .styleLayout {
+        max-width: 980px;
+        display: block;
+        flex-direction: row;
+      }
+
+      
+    .main-content {
+        flex: none;
+        max-width: 850px;
+        margin: auto;
+        padding: auto;
+        place-items: center;
+      }
+    
+    
+    .stylesSectionContainer {
+        display: block;
+        flex-direction: row;
+        align-items: center;
+        gap: 10px;
+    }
+    
+    
+    .stylesContainer {
+        display: block;
+        flex-direction: row;
+        align-items: center;
+    }
+    
+    
+
+
+    
+    .cardProductContent {
+        padding: auto;
+        max-width: 980px;
+    
+    }
+    
+
+    
+    .productoDetailContainer {
+        display: block;
+        gap: auto;
+        max-width: 980px;
+        
+    }
+    
+
+    
+    
+    
+
+    
+    
+    .stylesProductContainer {
+        display: block;
+        min-height: auto;
+        margin: auto;
+        padding: auto;
+        place-items: center;
+        max-width: 980px;
+    }
+    
+    .cardProductSection {
+        display: block;
+        flex-direction: row;
+        width: 360px;
+        gap: 10px;
+        margin: 10px;
+        padding: auto;
+        box-sizing: content-box;
+        background-color: white;
+    }
+    
+    .productDetailInformation {
+        display: flex;
+        width: 100%;
+        margin: auto ;
+        gap: 12px;
+        align-items: center;
+    
+    }
+    
+    .NavBarHeader {
+        height: 120px;
+        width: 100%;
+        display: block;
+        justify-content: space-between;
+        place-items: center;
+        align-items: center;
+        background-color: #1f2937;
+        padding: auto;
+        margin: auto;
+        position: sticky;
+        top: 0;
+        z-index: 1000; 
+    }
+    
+    
+    
+   
+    
+
+    
+    
+    .filtrosContainer {
+        display: block;
+        flex-direction: row;
+        gap: auto;
+        padding: auto;
+        margin: auto;
+    }
+    
+    .checkboxItem {
+        display: block;
+        gap: auto;
+
+    }
+    
+
+    }
+
+
+
+
+@media screen and (max-width:700px) {
+
+body {
+    max-width: 700px;
+}
+
+
+}
+
+
+@media screen and (max-width:480px) {
+
+body {
+    max-width: 480px;
+}
+
+    
+.NavBarHeader {
+    height: 150px;
+}
+
+
+
+
+
 }
