@@ -1,15 +1,13 @@
 import { Link } from "react-router";
 
-import type { Products } from "../types/typeProductMocks";
 
-type Props = {
-  carrito: Products[];
-};
+import { useCart } from "../hooks/useCart";
 
 
-export default function ConfirmarCompra(props: Props) {
-  const { carrito } = props
-  const total = carrito.reduce((acc, item) => acc + item.price, 0);
+
+
+export default function ConfirmarCompra() {
+  const {  total } = useCart();
   return (
     <div>
       <h2>Monto total de la compra: ${total}</h2>
