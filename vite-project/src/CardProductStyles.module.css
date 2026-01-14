@@ -312,6 +312,8 @@ body {
         max-width: 980px;
         display: block;
         flex-direction: column;
+        gap: 8px;
+        padding: 12px;
       }
 
       
