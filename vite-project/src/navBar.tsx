@@ -56,11 +56,11 @@ function ComponentNavBar(props: NavBarProps){
             <li className={styles.itemsStyle}>{item2}</li>
             <li className={styles.itemsStyle}>{item3}</li>
             <li className={styles.itemsStyle}>${total}</li>
-              <Link to="/carrito" state={cart}>🛒
-                {/*<img src="/carro-de-la-compra.png" alt="carrito" />*/}
-              </Link>
           </ul>
           </div>
+          <Link to="/carrito" state={cart}>🛒
+                {/*<img src="/carro-de-la-compra.png" alt="carrito" />*/}
+              </Link>
           {children}
         </div>
       
